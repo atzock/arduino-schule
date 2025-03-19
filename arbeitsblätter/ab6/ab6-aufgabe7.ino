@@ -1,7 +1,7 @@
 // 7a
-const int redPin = 9;
-const int greenPin = 10;
-const int bluePin = 11;
+const int redPin = 6;
+const int greenPin = 5;
+const int bluePin = 3;
 
 void setup() {
   pinMode(redPin, OUTPUT);
@@ -45,7 +45,7 @@ void loop() {
   analogWrite(greenPin, 255);
   delay(1000);
 
-  // Gr n
+  // Grün
   analogWrite(redPin, 0);
   analogWrite(greenPin, 255);
   delay(1000);
@@ -75,7 +75,7 @@ void loop() {
   delay(1000);
 }
 
-// 7c my version
+// 7c with transition
 void setup() {
     pinMode(redPin, OUTPUT);
     pinMode(greenPin, OUTPUT);
