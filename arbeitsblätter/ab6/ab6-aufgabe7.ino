@@ -15,23 +15,32 @@ void loop() {
   analogWrite(bluePin, 0);    // No blue
   delay(1000);
 }
-
+// ---------------------------------------------------------------------------------------------------
 // 7b
-void setup() {}
+int redPin = 6;
+int greenPin = 5;
+
+void setup() {
+    pinMode(redPin, OUTPUT);
+    pinMode(greenPin, OUTPUT);
+}
 
 void loop() {
+    // Rot nach Gelb
     for (int i = 0; i < 256; i++) {
-        analogWrite(redPin, 255 - i);
+        analogWrite(redPin, 255);
         analogWrite(greenPin, i);
         delay(5);
     }
+    // Gelb nach Grün
     for (int i = 0; i < 256; i++) {
-        analogWrite(redPin, i);
-        analogWrite(greenPin, 255 - i);
+        analogWrite(redPin, 255 - i);
+        analogWrite(greenPin, 255);
         delay(5);
     }
 }
 
+// ---------------------------------------------------------------------------------------------------
 // 7c
 void setup() {
   pinMode(redPin, OUTPUT);
@@ -74,7 +83,7 @@ void loop() {
   analogWrite(bluePin, 0);
   delay(1000);
 }
-
+// ---------------------------------------------------------------------------------------------------
 // 7c with transition
 void setup() {
     pinMode(redPin, OUTPUT);
