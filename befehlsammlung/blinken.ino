@@ -1,13 +1,18 @@
-int time = 500;
-int led = 13;
+const int ledPin = 13; // the number of the LED pin
+const int interval = 500; // interval at which to blink (milliseconds)
 
 void setup() {
-    pinMode(led, OUTPUT);
+  // initialize the digital pin as an output.
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-    digitalWrite(led, HIGH);
-    delay(time)
-    digitalWrite(led, LOW);
-    delay(time);
+  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(ledPin, HIGH);
+  // wait for a second
+  delay(interval);
+  // turn the LED off by making the voltage LOW
+  digitalWrite(ledPin, LOW);
+  // wait for a second
+  delay(interval);
 }

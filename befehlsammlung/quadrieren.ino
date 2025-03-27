@@ -5,7 +5,6 @@ void setup() {
     while (zahl * zahl < 257) {
         Serial.println(zahl * zahl);
         zahl *= 2;
-
     }
 }
 
@@ -20,7 +19,6 @@ void setup() {
     while (zahl * zahl < ergeb) {
         Serial.println(zahl * zahl);
         zahl *= 2;
-
     }
 }
 
