@@ -8,11 +8,7 @@ void setup() {
 
 void loop() {
     tstatus=digitalRead(4);
-    if (tstatus == HIGH) {
-        Serial.println("Taster ist gedrückt!");
-    } else {
-        Serial.println("Taster ist nicht gedrückt!");
-    }
+    Serial.println(tstatus);
     delay(500);
 }
 
@@ -27,11 +23,30 @@ void setup() {
 
 void loop() {
     tstatus=digitalRead(4);
-    if (tstatus == HIGH) {
+    if (tstatus == 0) {
         digitalWrite(2, HIGH);
         Serial.println("Taster ist gedrückt!");
     } else {
         digitalWrite(2, LOW);
         Serial.println("Taster ist nicht gedrückt!");
     }
+}
+
+//Aufgabe 12c
+int tstatus;
+
+void setup() {
+    pinMode(4, INPUT_PULLUP);
+    pinMode(2, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+    tstatus=digitalRead(4);
+    if (tstatus == 0) {
+        digitalWrite(2, LOW);
+    } else {
+        digitalWrite(2, HIGH);
+    }
+    delay(50);
 }
