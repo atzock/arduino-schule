@@ -75,3 +75,23 @@ void loop() {
   }
 }
 
+int buttonPin = 2;
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP); // Taster an GND
+  Serial.begin(9600);
+}
+
+void loop() {
+  static unsigned long start = 0;
+  int buttonState = digitalRead(buttonPin);
+  if (buttonState == 0 && start == 0) {
+    start = millis();
+  }
+  else if (buttonState == 1 && start != 0) {
+    unsigned long duration = millis() - start;
+    start = 0;
+    Serial.print("This button press lasted ");
+    Serial.print(duration / 1000.0);
+    Serial.println(" seconds.");
+  }
+}
