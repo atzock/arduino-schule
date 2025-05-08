@@ -96,3 +96,36 @@ void loop() {
     Serial.println(" seconds.");
   }
 }
+
+// Projekt Reaktionstester
+int tpin = 2;
+int showPin = 7;
+unsigned long zeit = 0;
+int zufallsz = 0;
+
+void setup() {
+  pinMode(tpin, INPUT_PULLUP);
+  pinMode(showPin, OUTPUT);
+  Serial.begin(9600);
+  randomSeed(analogRead(0));
+}
+
+void loop() {
+  zufallsz = random(1000, 5000);
+  Serial.println("Bereit machen!");
+  delay(3000);
+  Serial.println("Los geht's!");
+  delay(zufallsz);
+  zeit = millis();
+  digitalWrite(showPin, HIGH);
+
+  while (digitalRead(tpin) == HIGH) {
+    // warten bis Taster gedrückt
+  }
+  float sek = (millis() - zeit) / 1000.0;
+  digitalWrite(showPin, LOW);
+  Serial.print("Dauer: ");
+  Serial.print(sek);
+  Serial.println(" Sekunden");
+  delay(10000);
+}
