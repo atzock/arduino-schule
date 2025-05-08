@@ -75,6 +75,7 @@ void loop() {
   }
 }
 
+// Tastendrucklänge
 int buttonPin = 2;
 void setup() {
   pinMode(buttonPin, INPUT_PULLUP); // Taster an GND
