@@ -129,3 +129,75 @@ void loop() {
   Serial.println(" Sekunden");
   delay(10000);
 }
+
+// Projekt Reaktionstester
+int tpin = 2;
+int showPin = 7;
+unsigned long zeit = 0;
+int zufallsz = 0;
+int player = 0;
+float reaktion1 = 0;
+float reaktion2 = 0;
+
+void setup() {
+  pinMode(tpin, INPUT_PULLUP);
+  pinMode(showPin, OUTPUT);
+  Serial.begin(9600);
+  randomSeed(analogRead(0));
+}
+
+void loop() {
+  if (player == 0) {
+    Spieler1();
+    player = 1;
+  }
+  else {
+    Spieler2();
+    Serial.print("Gewinner: ");
+    if (reaktion1 < reaktion2) {
+      Serial.println("Spieler 1!");
+    }
+    else if (reaktion2 < reaktion1) {
+      Serial.println("Spieler 2!");
+    }
+    else {
+      Serial.println("Unentschieden!");
+    }
+    player = 0;
+  }
+  delay(10000);
+}
+
+void Spieler1() {
+  Serial.println("Spieler 1, bereit machen!");
+  delay(3000);
+  Serial.println("Los geht's!");
+  delay(zufallsz);
+  zeit = millis();
+  digitalWrite(showPin, HIGH);
+  while (digitalRead(tpin) == HIGH) {
+    // warten bis Taster gedrückt
+  }
+  reaktion1 = (millis() - zeit) / 1000.0;
+  digitalWrite(showPin, LOW);
+  Serial.print("Dauer Spieler 1: ");
+  Serial.print(reaktion1);
+  Serial.println(" Sekunden");
+}
+
+void Spieler2() {
+  Serial.println("Spieler 2, bereit machen!");
+  delay(3000);
+  Serial.println("Los geht's!");
+  delay(zufallsz);
+  zeit = millis();
+  digitalWrite(showPin, HIGH);
+  while (digitalRead(tpin) == HIGH) {
+    // warten bis Taster gedrückt
+  }
+  reaktion2 = (millis() - zeit) / 1000.0;
+  digitalWrite(showPin, LOW);
+  Serial.print("Dauer Spieler 2: ");
+  Serial.print(reaktion2);
+  Serial.println(" Sekunden");
+}
