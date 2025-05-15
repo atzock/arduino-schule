@@ -68,12 +68,10 @@ void SOS() {
 
 // Aufgabe 15c
 int zufallsz = 0;
-int tasterpin = 2;
 int ledpin = 13;
 
 void setup() {
     pinMode(13, OUTPUT);
-    pinMode(2, INPUT_PULLUP);
     Serial.begin(9600);
     randomSeed(analogRead(A1));
 }

@@ -143,7 +143,7 @@ void setup() {
   pinMode(tpin, INPUT_PULLUP);
   pinMode(showPin, OUTPUT);
   Serial.begin(9600);
-  randomSeed(analogRead(0));
+  randomSeed(analogRead(A1));
 }
 
 void loop() {
@@ -168,7 +168,7 @@ void loop() {
   delay(10000);
 }
 
-void Spieler1() {
+float Spieler1() {
   Serial.println("Spieler 1, bereit machen!");
   delay(3000);
   Serial.println("Los geht's!");
@@ -183,9 +183,10 @@ void Spieler1() {
   Serial.print("Dauer Spieler 1: ");
   Serial.print(reaktion1);
   Serial.println(" Sekunden");
+  return reaktion1;
 }
 
-void Spieler2() {
+float Spieler2() {
   Serial.println("Spieler 2, bereit machen!");
   delay(3000);
   Serial.println("Los geht's!");
@@ -200,4 +201,5 @@ void Spieler2() {
   Serial.print("Dauer Spieler 2: ");
   Serial.print(reaktion2);
   Serial.println(" Sekunden");
+  return reaktion2;
 }
