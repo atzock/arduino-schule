@@ -14,7 +14,7 @@ void loop() {
   Serial.print(" ist ");
   Serial.println(fakultaet);
   delay(5000);
-  fakultaet = 1; // reset the value
+  fakultaet = 1;
 }
 
 long Fakultaet(int n) {
@@ -24,4 +24,3 @@ long Fakultaet(int n) {
   }
   return localFakultaet;
 }
-
